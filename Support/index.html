@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>NPM manager</title>
+	<style>
+	  body {
+	    background-color: #242424;
+	    color: #eee;
+	    font-family: menlo,courier new,fixed,swiss,sans-serif;
+      font-size: 12px;
+      margin: 0;
+	  }
+	  
+	  a {
+	    color: #ccc;
+	    text-decoration: none;
+	  }
+	  
+	  .tabrow {
+      list-style: none;
+      margin: 0;
+      padding: 6px 20px 0;
+      line-height: 24px;
+      position: relative;
+    }
+    .tabrow li {
+      text-align: center;
+      box-shadow: 0 3px 3px #242424, inset 0 1px 0 #303030;
+      /*text-shadow: 0 1px #FFF;*/
+      margin: 0 -5px;
+      padding: 0 20px;
+      border: 1px solid #161616;
+      background: #242424;
+      display: inline-block;
+      position: relative;
+      z-index: 0;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+    .tabrow:after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      border-top: 1px solid #161616;
+      z-index: 1;
+      border-bottom: 1px solid #303030;
+
+    }
+    .tabrow:before {
+      z-index: 1;
+    }
+    .tabrow li:target {
+      z-index: 2;
+      border-bottom-color: #242424;
+    }
+    .tabrow li:before,
+    .tabrow li:after {
+      position: absolute;
+      bottom: 0;
+      width: 6px;
+      height: 6px;
+      content: " ";
+    }
+    .tabrow li:after, .tabrow li:before {
+      border: 1px solid #161616;
+    }
+    .tabrow li:before {
+      left: -7px;
+      border-bottom-right-radius: 6px;
+      border-width: 0 1px 1px 0;
+      box-shadow: 0 1px 0 #303030, 2px 2px 0 #242424;
+        
+    }
+    .tabrow li:after {
+      right: -7px;
+      border-bottom-left-radius: 6px;
+      border-width: 0 0 1px 1px;
+      box-shadow: 0 1px 0 #303030, -2px 2px 0 #242424;
+        
+    }
+
+	</style>
+</head>
+<body>
+  <ul class="tabrow">
+	    <li id="lorem"><a href="#lorem">Lorem</a></li>
+	    <li id="ipsum"><a href="#ipsum">Ipsum</a></li>
+	    <li id="sit"><a href="#sit">Sit amet</a></li>
+	    <li id="con"><a href="#con">Consectetur adipisicing</a></li>
+	</ul>
+	<!-- <span id="button">Click Me!</span>
+	 <script>
+	   document.addEventListener("DOMContentLoaded", function domready() {
+	     document.removeEventListener("DOMContentLoaded", domready);
+	     document.getElementById("button").addEventListener("click", function () { 
+	       console.log(TextMate.system('ls -a', null).outputString); 
+	     });
+	    });
+	  </script> -->
+</body>
+</html>

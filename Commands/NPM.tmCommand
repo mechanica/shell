@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env node
+var env = process.env || process.ENV
+  , fs = require('fs')
+  , npm = require(env.TM_BUNDLE_SUPPORT + '/node_modules/npm')
+  ;
+
+/*
+npm.load(function () {
+  npm.commands.install(env.TM_BUNDLE_SUPPORT, ['jshint'], function () {
+    console.log(fs.readdirSync('.'));
+  })
+});
+*/
+
+console.log('&lt;div style="background-color: red"&gt;Something&lt;/div&gt;')</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^v</string>
+	<key>name</key>
+	<string>NPM</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>uuid</key>
+	<string>AA185979-3C7F-43A9-9B67-2FA7439FC1AE</string>
+</dict>
+</plist>
