@@ -5,11 +5,11 @@
 	<key>name</key>
 	<string>Mechanica</string>
 	<key>contactEmailRot13</key>
-  <string>ralxrri@tznvy.pbz</string>
-  <key>contactName</key>
-  <string>Kirill Enykeev</string>
-  <key>description</key>
-  <string><a href="http://mech.sh/">Mechanica</a> is the simplified shell for web developers.</string>
+	<string>ralxrri@tznvy.pbz</string>
+	<key>contactName</key>
+	<string>Kirill Enykeev</string>
+	<key>description</key>
+	<string>&lt;a href="http://mech.sh/"&gt;Mechanica&lt;/a&gt; is the simplified shell for web developers.</string>
 	<key>uuid</key>
 	<string>9D0F2386-ACDC-4402-B655-364FB622598C</string>
 </dict>
