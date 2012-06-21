@@ -1,74 +1,74 @@
 @charset "UTF-8";
 
 .content {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: 0;
-  height: 100%;
-  padding: 32px 0 26px;
-  box-sizing: border-box;
-  display: none;
-  pointer-events: none;
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 0;
+	height: 100%;
+	padding: 32px 0 26px;
+	box-sizing: border-box;
+	display: none;
+	pointer-events: none;
 }
 .content * {
-  pointer-events: auto;
+	pointer-events: auto;
 }
 
 .scroller {
-  height: 100%;
-  overflow:hidden;
-  overflow-y:scroll;
-  padding-left: 12px;
-  background-color: #242424;
-  -webkit-user-select: auto;
+	height: 100%;
+	overflow:hidden;
+	overflow-y:scroll;
+	padding-left: 12px;
+	background-color: #242424;
+	-webkit-user-select: auto;
 }
 
 /* Console */
 
 .item {
-  box-shadow: 0 1px 0 #161616, 0 2px 0 #303030;
-  padding: 8px 12px 8px 12px;
+	box-shadow: 0 1px 0 #161616, 0 2px 0 #303030;
+	padding: 8px 12px 8px 12px;
 }
 
 pre {
-  margin: 0;
-  color: #808080;
+	margin: 0;
+	color: #808080;
 }
 
 .userhost {
-  float: right;
-  color: #484848;
+	float: right;
+	color: #484848;
 }
 
 .user {
-  color: #A5DF55;
-  padding: 0 .3em;
+	color: #A5DF55;
+	padding: 0 .3em;
 }
 
 .host {
-  color: #FBE74A;
-  padding: 0 .3em;
+	color: #FBE74A;
+	padding: 0 .3em;
 }
 
 .promt {
-  color: #484848;
+	color: #484848;
 }
 
 .path {
-  color: #ccc;
+	color: #ccc;
 }
 
 .branch {
-  color: #A5DF55;
-  padding: 0 .3em;
+	color: #A5DF55;
+	padding: 0 .3em;
 }
 
 .unstaged {
-  color: #C61600;
+	color: #C61600;
 }
 
 .command:before {
-  content: '› ';
-  color: #89BDFE;
+	content: '› ';
+	color: #89BDFE;
 }
