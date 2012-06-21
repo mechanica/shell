@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env node
+var env = process.env || process.ENV
+  , fs = require('fs')
+  , npm = require(env.TM_BUNDLE_SUPPORT + '/node_modules/npm')
+  , mustache = require(env.TM_BUNDLE_SUPPORT + '/node_modules/mustache')
+  ;
+
+/*
+npm.load(function () {
+  npm.commands.ls({}, true, function (a,b,c) {
+    console.log('&lt;script&gt;console.log("'+c+'", '+JSON.stringify(c)+');&lt;/script&gt;');
+  })
+});
+*/
+
+fs.readFile(env.TM_BUNDLE_SUPPORT + '/index.html', 'utf8', function(e, html) {
+  console.log(mustache.to_html(html, { env: env }));
+});</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^`</string>
+	<key>name</key>
+	<string>Shell</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>uuid</key>
+	<string>AA185979-3C7F-43A9-9B67-2FA7439FC1AE</string>
+</dict>
+</plist>

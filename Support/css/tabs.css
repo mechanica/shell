@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+.tabrow {
+  list-style: none;
+  margin: 0;
+  padding: 6px 20px 0;
+  line-height: 24px;
+  -webkit-user-select: none;
+  /*position: relative;*/
+}
+.tabrow li {
+  display: inline-block;
+}
+.tabrow .tab {
+  text-align: center;
+  box-shadow: 0 3px 3px #242424, inset 0 1px 0 #303030;
+  /*text-shadow: 0 1px #FFF;*/
+  margin: 0 -5px;
+  border: 1px solid #161616;
+  background: #242424;
+  display: inline-block;
+  position: relative;
+  z-index: 0;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+.tabrow .tab a {
+  padding: 0 20px;
+}
+.tabrow .content:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  top: 30px;
+  left: 0;
+  border-top: 1px solid #161616;
+  z-index: 1;
+  border-bottom: 1px solid #303030;
+
+}
+.tabrow:before {
+  z-index: 1;
+}
+.tabrow li:target .tab {
+  z-index: 2;
+  border-bottom-color: #242424;
+}
+.tabrow li:target .content {
+  display: block;
+}
+.tabrow .tab:before,
+.tabrow .tab:after {
+  position: absolute;
+  bottom: 0;
+  width: 6px;
+  height: 6px;
+  content: " ";
+}
+.tabrow .tab:after, .tabrow .tab:before {
+  border: 1px solid #161616;
+}
+.tabrow .tab:before {
+  left: -7px;
+  border-bottom-right-radius: 6px;
+  border-width: 0 1px 1px 0;
+  box-shadow: 0 1px 0 #303030, 2px 2px 0 #242424;
+    
+}
+.tabrow .tab:after {
+  right: -7px;
+  border-bottom-left-radius: 6px;
+  border-width: 0 0 1px 1px;
+  box-shadow: 0 1px 0 #303030, -2px 2px 0 #242424;
+}

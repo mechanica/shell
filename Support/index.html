@@ -2,95 +2,118 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>NPM manager</title>
-	<style>
-	  body {
-	    background-color: #242424;
-	    color: #eee;
-	    font-family: menlo,courier new,fixed,swiss,sans-serif;
-      font-size: 12px;
-      margin: 0;
-	  }
-	  
-	  a {
-	    color: #ccc;
-	    text-decoration: none;
-	  }
-	  
-	  .tabrow {
-      list-style: none;
-      margin: 0;
-      padding: 6px 20px 0;
-      line-height: 24px;
-      position: relative;
-    }
-    .tabrow li {
-      text-align: center;
-      box-shadow: 0 3px 3px #242424, inset 0 1px 0 #303030;
-      /*text-shadow: 0 1px #FFF;*/
-      margin: 0 -5px;
-      padding: 0 20px;
-      border: 1px solid #161616;
-      background: #242424;
-      display: inline-block;
-      position: relative;
-      z-index: 0;
-      border-top-left-radius: 6px;
-      border-top-right-radius: 6px;
-    }
-    .tabrow:after {
-      position: absolute;
-      content: "";
-      width: 100%;
-      bottom: 0;
-      left: 0;
-      border-top: 1px solid #161616;
-      z-index: 1;
-      border-bottom: 1px solid #303030;
+	<title>Mechanica Shell</title>
+	<!-- {{=%% %%=}} -->
+	<base href="tm-file://%% env.TM_BUNDLE_SUPPORT %%/">
+  <link rel="stylesheet" href="css/base.css" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="css/tabs.css" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="css/content.css" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="css/commandline.css" type="text/css" media="screen" charset="utf-8">
 
-    }
-    .tabrow:before {
-      z-index: 1;
-    }
-    .tabrow li:target {
-      z-index: 2;
-      border-bottom-color: #242424;
-    }
-    .tabrow li:before,
-    .tabrow li:after {
-      position: absolute;
-      bottom: 0;
-      width: 6px;
-      height: 6px;
-      content: " ";
-    }
-    .tabrow li:after, .tabrow li:before {
-      border: 1px solid #161616;
-    }
-    .tabrow li:before {
-      left: -7px;
-      border-bottom-right-radius: 6px;
-      border-width: 0 1px 1px 0;
-      box-shadow: 0 1px 0 #303030, 2px 2px 0 #242424;
-        
-    }
-    .tabrow li:after {
-      right: -7px;
-      border-bottom-left-radius: 6px;
-      border-width: 0 0 1px 1px;
-      box-shadow: 0 1px 0 #303030, -2px 2px 0 #242424;
-        
-    }
-
-	</style>
+	<script>
+	  document.location.hash || (document.location.hash = "#lorem");
+	</script>
 </head>
 <body>
   <ul class="tabrow">
-	    <li id="lorem"><a href="#lorem">Lorem</a></li>
-	    <li id="ipsum"><a href="#ipsum">Ipsum</a></li>
-	    <li id="sit"><a href="#sit">Sit amet</a></li>
-	    <li id="con"><a href="#con">Consectetur adipisicing</a></li>
+	    <li id="lorem">
+	      <div class="tab"><a href="#lorem">Terminal</a></div>
+	      <div class="content">
+	        <div class="scroller">
+	          
+	          <div class="item">
+	            <div class="userhost"><span class="user">enykeev</span>@<span class="host">laptop</span></div>
+	            <div class="promt"><span class="path">~/Developer/Personal/Web/MyProject/</span> ➜ (<span class="branch">master</span>)</div>
+	            <div class="command">git status</div>
+	            <pre># On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   ../Commands/NPM.tmCommand
+#	modified:   index.html
+#
+no changes added to commit (use "git add" and/or "git commit -a")</pre>
+  	        </div>
+  	        
+  	        <div class="item">
+	            <div class="userhost"><span class="user">enykeev</span>@<span class="host">laptop</span></div>
+	            <div class="promt"><span class="path">~/Developer/Personal/Web/MyProject/</span> ➜ (<span class="branch unstaged">master</span>)</div>
+	            <div class="command">git status</div>
+	            <pre># On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   ../Commands/NPM.tmCommand
+#	modified:   index.html
+#
+no changes added to commit (use "git add" and/or "git commit -a")</pre>
+  	        </div>
+  	        
+  	        <div class="item">
+	            <div class="userhost"><span class="user">enykeev</span>@<span class="host">laptop</span></div>
+	            <div class="promt"><span class="path">~/Developer/Personal/Web/MyProject/</span> ➜ (<span class="branch">master</span>)</div>
+	            <div class="command">git status</div>
+	            <pre># On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   ../Commands/NPM.tmCommand
+#	modified:   index.html
+#
+no changes added to commit (use "git add" and/or "git commit -a")</pre>
+  	        </div>
+	        </div>
+	      </div>
+	    </li>
+	    <li id="ipsum">
+	      <div class="tab"><a href="#ipsum">Node console</a></div>
+	      <div class="content">
+	        Text2
+	      </div>
+	    </li>
+	    <li id="sit">
+	      <div class="tab"><a href="#sit">Tests</a></div>
+	      <div class="content">
+	        <button>some</button>
+	      </div>
+	    </li>
+	    <li id="con">
+	      <div class="tab"><a href="#con">Settings</a></div>
+	      <div class="content">
+	        Text4
+	      </div>
+	    </li>
 	</ul>
+	<div class="commandline">
+	  <form action="">
+	    <input type="text" name="some_name" value="npm u" id="some_name">
+	  </form>
+	  <ul class="suggestion">
+	    <li tabindex="0">un</li>
+	    <li tabindex="0">uninstall</li>
+	    <li tabindex="0">unlink</li>
+	    <li tabindex="0">unpublish</li>
+	    <li tabindex="0">unstar</li>
+	    <li tabindex="0">up</li>
+	    <li tabindex="0">update</li>
+	  </ul>
+	</div>
+	<script src="node_modules/zeptoify/lib/zepto.js" type="text/javascript" charset="utf-8"></script>
+	<script src="node_modules/zeptoify/lib/event.js" type="text/javascript" charset="utf-8"></script>
+	<script src="node_modules/mustache/mustache.js" type="text/javascript" charset="utf-8"></script>
+
+	<script type="text/mustache" charset="utf-8" id="template:content:item">
+	  <div class="item">
+      <div class="userhost"><span class="user">{{ user }}</span>@<span class="host">{{ hostname }}</span></div>
+      <div class="promt"><span class="path">{{ path }}</span>{{# branch }} ➜ (<span class="branch {{ unstaged }}">{{ branch }}</span>){{/ branch }}</div>
+      <div class="command">{{ command }}</div>
+      <pre>{{ output }}</pre>
+    </div>
+	</script>
+	
 	<!-- <span id="button">Click Me!</span>
 	 <script>
 	   document.addEventListener("DOMContentLoaded", function domready() {
