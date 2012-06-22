@@ -10,13 +10,16 @@
 	<link rel="stylesheet" href="tm-file://%% env.TM_BUNDLE_SUPPORT %%/css/commandline.css" type="text/css" media="screen" charset="utf-8">
 
 	<script>
-		document.location.hash || (document.location.hash = "#lorem");
+		document.location.hash || (document.location.hash = "#terminal");
 	</script>
+	
+	<script data-main="tm-file://%% env.TM_BUNDLE_SUPPORT %%/js/main.js" src="tm-file://%% env.TM_BUNDLE_SUPPORT %%/node_modules/requirejs/require.js" type="text/javascript" charset="utf-8"></script>
+	
 </head>
 <body>
 	<ul class="tabrow">
-			<li id="lorem">
-				<div class="tab"><a href="#lorem">Terminal</a></div>
+			<li id="terminal">
+				<div class="tab"><a href="#terminal">Terminal</a></div>
 				<div class="content">
 					<div class="scroller">
 						
@@ -67,20 +70,20 @@ no changes added to commit (use "git add" and/or "git commit -a")</pre>
 					</div>
 				</div>
 			</li>
-			<li id="ipsum">
-				<div class="tab"><a href="#ipsum">Node console</a></div>
+			<li id="console">
+				<div class="tab"><a href="#console">Node console</a></div>
 				<div class="content">
 					Text2
 				</div>
 			</li>
-			<li id="sit">
-				<div class="tab"><a href="#sit">Tests</a></div>
+			<li id="tests">
+				<div class="tab"><a href="#tests">Tests</a></div>
 				<div class="content">
 					<button>some</button>
 				</div>
 			</li>
-			<li id="con">
-				<div class="tab"><a href="#con">Settings</a></div>
+			<li id="settings">
+				<div class="tab"><a href="#settings">Settings</a></div>
 				<div class="content">
 					Text4
 				</div>
@@ -100,16 +103,13 @@ no changes added to commit (use "git add" and/or "git commit -a")</pre>
 			<li tabindex="0">update</li>
 		</ul>
 	</div>
-	<script src="tm-file://%% env.TM_BUNDLE_SUPPORT %%/node_modules/zeptoify/lib/zepto.js" type="text/javascript" charset="utf-8"></script>
-	<script src="tm-file://%% env.TM_BUNDLE_SUPPORT %%/node_modules/zeptoify/lib/event.js" type="text/javascript" charset="utf-8"></script>
-	<script src="tm-file://%% env.TM_BUNDLE_SUPPORT %%/node_modules/mustache/mustache.js" type="text/javascript" charset="utf-8"></script>
 
 	<script type="text/mustache" charset="utf-8" id="template:content:item">
 		<div class="item">
 			<div class="userhost"><span class="user">{{ user }}</span>@<span class="host">{{ hostname }}</span></div>
 			<div class="promt"><span class="path">{{ path }}</span>{{# branch }} ➜ (<span class="branch {{ unstaged }}">{{ branch }}</span>){{/ branch }}</div>
 			<div class="command">{{ command }}</div>
-			<pre>{{ output }}</pre>
+			{{#output}}<pre>{{ output }}</pre>{{/output}}
 		</div>
 	</script>
 	

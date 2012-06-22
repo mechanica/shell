@@ -49,6 +49,7 @@
 	left: 20px;
 	background-color: #303030;
 	-webkit-user-select: none;
+	display: none;
 }
 
 .suggestion:before,
