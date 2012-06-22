@@ -21,6 +21,7 @@ body {
 	font-family: menlo,"courier new",fixed,swiss,sans-serif;
 	font-size: 12px;
 	margin: 0;
+	overflow: hidden;
 }
 
 a {
