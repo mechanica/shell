@@ -1,8 +1,8 @@
 require.config({
-  paths: { 
+  paths: {
 		Zepto: '../node_modules/zeptoify/lib/zepto', 
-		Underscore: 'lib/underscore', 
-		Backbone: 'lib/backbone'
+		Underscore: '../node_modules/backbone/node_modules/underscore/underscore', 
+		Backbone: '../node_modules/backbone/backbone',
   },
 	shim: {
 		Zepto: {
@@ -16,6 +16,15 @@ require.config({
 			exports: 'Backbone'
 		}
 	}
+});
+
+require.config({
+	packages: [
+		{
+			name: 'Terminal',
+			location: '../modules/Terminal'
+		}
+	]
 });
 
 require([ 'app', 'Zepto', 'Underscore', 'Backbone' ], function (App) {

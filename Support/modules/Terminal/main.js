@@ -4,5 +4,5 @@ define([
 	'Backbone'
 ], function($, _, BB){
 
-	return {};
+	return 'ok';
 });

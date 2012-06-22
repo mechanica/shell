@@ -1,0 +1,6 @@
+<div class="item">
+	<div class="userhost"><span class="user">{{ user }}</span>@<span class="host">{{ hostname }}</span></div>
+	<div class="promt"><span class="path">{{ path }}</span>{{# branch }} ➜ (<span class="branch {{ unstaged }}">{{ branch }}</span>){{/ branch }}</div>
+	<div class="command">{{ command }}</div>
+	{{#output}}<pre>{{ output }}</pre>{{/output}}
+</div>

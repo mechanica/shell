@@ -1,17 +1,20 @@
 define([
- 	'Zepto',
-  'Underscore',
-  'Backbone'
-], function($, _, BB){
-  var initialize = function(){
-		var test = BB.View.extend({
-			el: $('#terminal .scroller')
-		});
-		
-		console.log(new test().$el);
-  }
+	'Zepto',
+	'Underscore',
+	'Backbone',
+	'Terminal'
+], function($, _, BB, Terminal){
+	
+	var initialize = function(){		
+		addModule(Terminal);
+	}
+	
+	var addModule = function (Module) {
+		console.log(Module);
+	}
 
-  return {
-    initialize: initialize
-  };
+	return {
+		initialize: initialize
+	};
+	
 });
