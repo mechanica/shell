@@ -4,5 +4,5 @@ define([
 	'Backbone'
 ], function($, _, BB){
 
-	return 'ok';
+	return new BB.Model({ id: 'some', name: 'Something', content: 'Else stuff'});
 });

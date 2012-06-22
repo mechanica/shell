@@ -3,6 +3,7 @@ require.config({
 		Zepto: '../node_modules/zeptoify/lib/zepto', 
 		Underscore: '../node_modules/backbone/node_modules/underscore/underscore', 
 		Backbone: '../node_modules/backbone/backbone',
+		Mustache: '../node_modules/mustache/mustache'
   },
 	shim: {
 		Zepto: {
@@ -14,6 +15,9 @@ require.config({
 		Backbone: {
 			deps: ['Zepto', 'Underscore'],
 			exports: 'Backbone'
+		},
+		Mustache: {
+			exports: 'Mustache'
 		}
 	}
 });
