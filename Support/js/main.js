@@ -18,6 +18,9 @@ require.config({
 		},
 		Mustache: {
 			exports: 'Mustache'
+		},
+		'Zepto/../event': {
+			deps: ['Zepto']
 		}
 	}
 });

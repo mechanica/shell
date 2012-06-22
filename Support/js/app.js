@@ -13,7 +13,7 @@ define([
 	}
 	
 	var addModule = function (Module) {
-		$(".tabrow").append( new Tab({ model: Module }).$el );
+		$(".tabrow").append( new Tab({ data: Module }).$el );
 	}
 
 	return {
