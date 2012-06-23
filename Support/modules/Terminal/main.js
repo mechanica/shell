@@ -4,30 +4,22 @@ define([
 	'Backbone',
 	'Mustache',
 	
+	'./commands',
+	
 	'text!./templates/item.mustache',
 	
 	'Zepto/../event'
-], function($, _, BB, M, template){
+], function($, _, BB, M, knownCommands, template){
 	
-	var knownCommands = {
-		'ls': null,
-		'ln': null,
-		'cd': null,
-		'npm' : [
-			'adduser', 'apihelp', 'author', 'bin', 'bugs', 'c', 'cache', 'completion',
-	    'config', 'deprecate', 'docs', 'edit', 'explore', 'faq', 'find', 'get',
-	    'help', 'help-search', 'home', 'i', 'info', 'init', 'install', 'la', 'link',
-	    'list', 'll', 'ln', 'login', 'ls', 'outdated', 'owner', 'pack', 'prefix',
-	    'prune', 'publish', 'r', 'rb', 'rebuild', 'remove', 'restart', 'rm', 'root',
-	    'run-script', 's', 'se', 'search', 'set', 'show', 'star', 'start', 'stop',
-	    'submodule', 'tag', 'test', 'un', 'uninstall', 'unlink', 'unpublish',
-	    'unstar', 'up', 'update', 'version', 'view', 'whoami'
-		],
-		'git' : [
-			'add', 'bisect', 'branch', 'checkout', 'clone', 'commit', 'diff', 'fetch',   
-			'grep', 'init', 'log', 'merge', 'mv', 'pull', 'push', 'rebase', 'reset',   
-			'rm', 'show', 'status', 'tag'
-		]
+	// Hensel and Gretel
+	var follow = function (object, path) {
+		if(path.length > 1) {
+			return follow(object[path[0]] || {}, path.splice(1))
+		} else if (path.length === 1) {
+			return object[path] || {};
+		} else {
+			return object;
+		}
 	};
 	
 	var Model = BB.Model.extend({
@@ -56,12 +48,14 @@ define([
 		
 		events: {
 			'submit form': "onSubmit",
-			'keyup input': "onKeyUp"
+			'keyup input': "onKeyUp",
+			'click .suggestion li': "applySuggestion",
+			'keyup .suggestion li': "applySuggestion"
 		},
 		
 		ui: {},
 		
-		initialize: function () {			
+		initialize: function () {
 			this.$el
 					.append('<form action=""><input type="text" value=""></form>')
 					.append( (this.ui.genius = new Genius()).$el );
@@ -92,9 +86,26 @@ define([
 				case 40:
 					break;
 				default:
-					this.ui.genius.suggest( this.ui.input.val() );
+					this.askSuggestion();
 					break;
 			};
+		},
+		
+		askSuggestion: function () {
+			this.ui.genius.suggest( this.ui.input.val() );
+		},
+		
+		// [ISSUE] Here's a strange 'bump' sound happening when you picking suggestion by 
+		// keyboard (Enter). Based on some tests and http://t.mech.sh/cocoa-bump-sound i 
+		// assume that is a bug in Textmate Web Preview that cause improper keyboard event
+		// 'consumption'. We need to test it in Textmate 2.
+		applySuggestion: function (e) {
+			if ( e.keyCode && e.keyCode !== 13) { return; }
+			var strong = this.ui.input.val().split(' ');
+			strong[strong.length-1] = ''			
+			this.ui.input.val( strong.join(' ') + $(e.target).text() + ' ' );
+			this.askSuggestion();
+			this.ui.input.focus();
 		}
 	});
 
@@ -105,10 +116,10 @@ define([
 		suggest: function ( query ) {
 			query = query.split(' ');
 			
-			last = query[query.length-1];
-			
+			last = query.splice( query.length - 1 )[0];
+						
 			if ( last.length ) {
-				this.render( _(knownCommands)
+				this.render( _( follow( knownCommands, query ) )
 					.chain()
 					.keys()
 					.filter(function (item) {
@@ -130,7 +141,7 @@ define([
 		
 		addOne: function (item) {
 			this.$el
-					.append( new Suggestion({ text: item }).$el );
+					.append( new Suggestion({ text: item, genius: this }).$el );
 		}
 	});
 	
@@ -139,7 +150,7 @@ define([
 		
 		initialize: function () {
 			this.$el
-					.attr( 'tabindex', 0)
+					.attr( 'tabindex', 0 )
 					.text( this.options.text );
 		}
 	})

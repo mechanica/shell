@@ -47,6 +47,7 @@
 	position: absolute;
 	bottom: 27px;
 	left: 20px;
+	margin-right: 20px;
 	background-color: #303030;
 	-webkit-user-select: none;
 	visibility: visible;
